@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,24 +17,28 @@ Route::get('/login', function () {
 
 Route::get('/register', function () {
     return view('register');
-}); 
+});
 
 Route::get('/imm', function () {
     return view('imm');
-}); 
+});
 
 Route::get('/imm2', function () {
     return view('imm2');
-}); 
+});
 
 Route::get('/imm3', function () {
     return view('imm3');
-}); 
+});
 
 Route::get('/imm4', function () {
     return view('imm4');
-}); 
+});
 
 Route::get('/home', function () {
     return view('home');
-}); 
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
